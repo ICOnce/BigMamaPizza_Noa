@@ -6,4 +6,12 @@ using System.Threading.Tasks;
 
 public class Order
 {
+    #region instance fields
+    int _orderNr;
+    Customer _customer;
+    double _price;
+    Pizza[] _pizzas;
+    string _dato;
+    bool _isDone;
+    #endregion
 }

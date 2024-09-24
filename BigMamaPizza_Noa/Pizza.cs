@@ -6,4 +6,9 @@ using System.Threading.Tasks;
 
 public class Pizza
 {
+    #region instance field
+    string _name;
+    string[] _toppings;
+    double _price;
+    #endregion
 }
