@@ -11,4 +11,22 @@ public class Customer
     string _adress;
     bool _isMember;
     #endregion
+
+    #region constructors
+    //Dependant on whether they want delivery or want to pick up
+    public Customer(string name)
+    {
+        _name = name;
+        _adress = "";
+        _isMember = false;
+    }
+
+    public Customer(string name, string adress)
+    {
+        _name = name;
+        _adress = adress;
+        _isMember = false;
+    }
+
+    #endregion
 }
