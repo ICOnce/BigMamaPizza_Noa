@@ -8,7 +8,7 @@ public class Customer
 {
     #region instance fields
     string _name;
-    string _adress;
+    string _address;
     bool _isMember;
     #endregion
 
@@ -17,14 +17,14 @@ public class Customer
     public Customer(string name)
     {
         _name = name;
-        _adress = "No Adress provided";
+        _address = "No Address provided";
         _isMember = false;
     }
 
     public Customer(string name, string adress)
     {
         _name = name;
-        _adress = adress;
+        _address = adress;
         _isMember = false;
     }
     #endregion
@@ -35,10 +35,10 @@ public class Customer
     public bool IsMember { get { return _isMember; } }
     
     //Option to add an adress to a customer if they picked up before, but now want delivery
-    public string Adress
+    public string Address
     {
-        get { return _adress; }
-        set { _adress = value; }
+        get { return _address; }
+        set { _address = value; }
     }
     #endregion
 
@@ -51,7 +51,7 @@ public class Customer
 
     public override string ToString()
     {
-        return $"Name:{_name}\nAdress:{_adress}\nIsMember:{_isMember}";
+        return $"(Name: {_name}, Address: {_address}, IsMember: {_isMember})";
     }
 
     #endregion

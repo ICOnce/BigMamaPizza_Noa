@@ -71,13 +71,12 @@ public class Order
 
     public override string ToString()
     {
-        GetTotal();
-        string output = $"Order number:{_orderNr}\n\nCustomer:\n{_customer}\nDate:{_date}\n\nIsDone:{_isDone}\n\nPizzas in order";
+        string output = $"Order number: {_orderNr}\n\nCustomer: {_customer}\nDate: {_date}\n\nIsDone: {_isDone}\n\nPizzas in order";
         foreach (Pizza pizza in _pizzas)
         {
             output += "\n*  " + pizza.ToString();
         }
-        output += $"\nPrice:{_price}";
+        output += $"\nPrice: {GetTotal()} kr";
         return output;
     }
 

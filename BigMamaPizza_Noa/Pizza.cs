@@ -48,11 +48,12 @@ public class Pizza
     #region methods
     public override string ToString()
     {
-        string output = $"{_name}: {_price}\n    ";
+        string output = $"{_name}: {_price} kr\n    ";
         foreach (string s in _toppings)
         {
             output += s + ", ";
         }
+        output = output.Remove(output.Length-2, 2);
         return output;
     }
     #endregion
