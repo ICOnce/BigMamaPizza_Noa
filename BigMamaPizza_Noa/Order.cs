@@ -47,7 +47,7 @@ public class Order
 
     public void AddToOrder(int id)
     {
-        if (id > Menu.MenuLength() - 1 || id < 0)
+        if (id > Menu.MenuLength() - 1 || id < 1)
         {
             Console.WriteLine("Invalid menu ID");
             return;
@@ -71,7 +71,7 @@ public class Order
 
     public override string ToString()
     {
-        string output = $"Order number: {_orderNr}\n\nCustomer: {_customer}\nDate: {_date}\n\nIsDone: {_isDone}\n\nPizzas in order";
+        string output = $"Order number: {_orderNr}\n\nCustomer: {_customer}\nDate: {_date}\n\nIsDone: {_isDone}\n\n{_pizzas.Count} pizzas in order";
         foreach (Pizza pizza in _pizzas)
         {
             output += "\n*  " + pizza.ToString();
