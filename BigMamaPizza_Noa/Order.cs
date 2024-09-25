@@ -22,7 +22,7 @@ public class Order
     {
         _customer = customer;
         _isDone = false;
-        _date = DateTime.Today.ToString();
+        _date = DateTime.Now.ToString();
         _pizzas = new List<Pizza>();
         //Increment the number of orders and give this order that number
         nrOfOrders++;
@@ -31,7 +31,55 @@ public class Order
 
     #endregion
 
+    #region properties
+
+    public int OrderNr {  get { return _orderNr; } }
+
+    public Pizza[] Pizzas { get { return _pizzas.ToArray(); } }
+
+    public string Date { get { return _date; } }
+
+    public bool IsDone { get { return _isDone; } }
+
+    #endregion
+
     #region methods
+
+    public void AddToOrder(int id)
+    {
+        if (id > Menu.MenuLength() - 1 || id < 0)
+        {
+            Console.WriteLine("Invalid menu ID");
+            return;
+        }
+        _pizzas.Add(Menu.GetPizza(id));
+    }
+
+    public double GetTotal()
+    {
+        foreach (Pizza pizza in _pizzas)
+        {
+            _price += pizza.Price;
+        }
+        return _price;
+    }
+
+    public void Done()
+    {
+        _isDone = true;
+    }
+
+    public override string ToString()
+    {
+        GetTotal();
+        string output = $"Order number:{_orderNr}\n\nCustomer:\n{_customer}\nDate:{_date}\n\nIsDone:{_isDone}\n\nPizzas in order";
+        foreach (Pizza pizza in _pizzas)
+        {
+            output += "\n*  " + pizza.ToString();
+        }
+        output += $"\nPrice:{_price}";
+        return output;
+    }
 
     #endregion
 }

@@ -9,14 +9,14 @@ public class Pizza
     #region instance fields
 
     private string _name;
-    private string[] _toppings;
+    private List<string> _toppings;
     private double _price;
 
     #endregion
 
     #region constructors
 
-    public Pizza(string name, string[] toppings, double price)
+    public Pizza(string name, List<string> toppings, double price)
     {
         _name = name;
         _toppings = toppings;
@@ -29,7 +29,7 @@ public class Pizza
 
     public string[] Toppings
     {
-        get { return _toppings; }
+        get { return _toppings.ToArray(); }
     }
 
     public double Price
@@ -43,5 +43,17 @@ public class Pizza
         get { return _name; }
     }
 
+    #endregion
+
+    #region methods
+    public override string ToString()
+    {
+        string output = $"{_name}: {_price}\n    ";
+        foreach (string s in _toppings)
+        {
+            output += s + ", ";
+        }
+        return output;
+    }
     #endregion
 }

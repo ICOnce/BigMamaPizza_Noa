@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿Menu.MakeMenu();
+
+Order test = new Order(new Customer("LabRat"));
+test.AddToOrder(2);
+test.AddToOrder(3);
+Console.WriteLine(test.ToString());
