@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class Order
 {
-    static int nrOfOrders;
+    private static int nrOfOrders;
     #region instance fields
     private int _orderNr;
     private Customer _customer;
