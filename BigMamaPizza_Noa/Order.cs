@@ -49,7 +49,9 @@ public class Order
     {
         if (id > Menu.MenuLength() - 1 || id < 1)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Invalid menu ID");
+            Console.ForegroundColor = ConsoleColor.Gray;
             return;
         }
         _pizzas.Add(Menu.GetPizza(id));
@@ -71,7 +73,7 @@ public class Order
 
     public override string ToString()
     {
-        string output = $"Order number: {_orderNr}\n\nCustomer: {_customer}\nDate: {_date}\n\nIsDone: {_isDone}\n\n{_pizzas.Count} pizzas in order";
+        string output = $"\nOrder number: {_orderNr}\n\nCustomer: {_customer}\nDate: {_date}\n\nIsDone: {_isDone}\n\n{_pizzas.Count} pizzas in order";
         foreach (Pizza pizza in _pizzas)
         {
             output += "\n*  " + pizza.ToString();

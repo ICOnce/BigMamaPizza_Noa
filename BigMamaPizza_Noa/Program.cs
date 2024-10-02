@@ -1,6 +1,7 @@
 ﻿Menu.MakeMenu();
 Menu.PrintMenu();
-Order order = new Order(new Customer("LabRat"));
+Customer LabRat = new Customer("LabRat");
+Order order = new Order(LabRat);
 bool ordering = true;
 Console.Title = "Ordering terminal";
 while (ordering == true)

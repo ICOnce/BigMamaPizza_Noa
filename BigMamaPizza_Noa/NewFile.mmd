@@ -1,0 +1,23 @@
+sequenceDiagram
+	Actor Customer
+	activate Program
+	Program->>+Order: Create(Customer)
+	Order-->>-Program: <br/>
+	loop until ordering is done
+		Program ->> Customer: StillOrdering?
+		alt yes
+			Customer -->> Program: Continues loop
+			Program ->> Order: AddToOrder(int) 
+			activate Order
+			Order ->> Menu: GetPizza(int)
+			activate Menu
+			Menu -->> Order: Returns pizza
+			deactivate Menu
+			deactivate Order
+		else no
+			Customer -->> Program: End loop
+		end
+	end
+	Program->>Order: ToString
+	deactivate Program
+	Order-->>Customer: Fisnished Order

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public class Customer
 {
     #region instance fields
-    string _name;
-    string _address;
-    bool _isMember;
+    private string _name;
+    private string _address;
+    private bool _isMember;
     #endregion
 
     #region constructors
