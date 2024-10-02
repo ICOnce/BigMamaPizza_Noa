@@ -39,7 +39,7 @@ public static class Menu
 
     public static void PrintMenu()
     {
-        for (int i = 1; i < pizzas.Length ; i++)
+        for (int i = 1; i < MenuLength() ; i++)
         {
             Console.WriteLine(i + ":" + pizzas[i].ToString() + "\n");
         }

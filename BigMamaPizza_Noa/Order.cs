@@ -14,6 +14,7 @@ public class Order
     private List<Pizza> _pizzas;
     private string _date;
     private bool _isDone;
+    private bool _delivery;
     #endregion
 
     #region constructors
@@ -41,6 +42,26 @@ public class Order
 
     public bool IsDone { get { return _isDone; } }
 
+    public bool Delivery 
+    { 
+        get 
+        { 
+            return _delivery;
+        }
+        set
+        {
+            if (_customer.Address != null)
+            {
+                _delivery = value;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Customer needs an address to order delivery");
+                Console.ForegroundColor= ConsoleColor.Gray;
+            }
+        }
+    }
     #endregion
 
     #region methods
@@ -63,6 +84,7 @@ public class Order
         {
             _price += pizza.Price;
         }
+        if (_delivery == true) _price += 40;
         return _price;
     }
 
@@ -73,7 +95,7 @@ public class Order
 
     public override string ToString()
     {
-        string output = $"\nOrder number: {_orderNr}\n\nCustomer: {_customer}\nDate: {_date}\n\nIsDone: {_isDone}\n\n{_pizzas.Count} pizzas in order";
+        string output = $"\nOrder number: {_orderNr}\n\nCustomer: {_customer}\nDate: {_date}\n\nShould be delivered: {_delivery}\nIs Done: {_isDone}\n\n{_pizzas.Count} pizzas in order";
         foreach (Pizza pizza in _pizzas)
         {
             output += "\n*  " + pizza.ToString();
